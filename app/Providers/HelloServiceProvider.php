@@ -23,9 +23,7 @@ class HelloServiceProvider extends ServiceProvider
         // クロージャ(無名関数を用いた記述)でhelloフォルダ内にあるindex.blade.phpテンプレートビューに対し、view_messageという値を設定する処理を作成
         // $viewはベンダーファイルのViewクラスのインスタンスを指している
         View::composer(
-            'hello.index', function($view){
-                $view->with('view_message', 'composer message!');
-            }
+            'hello.index', 'App\Http\Composers\HelloComposer'
         );
     }
 }
