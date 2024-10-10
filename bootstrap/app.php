@@ -12,7 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append(HelloMiddleware::class);
+        // グループとして登録したい場合はこのようん記述を行う
+        $middleware->appendToGroup('group-name', [
+            HelloMiddleware::class,
+        ]);
+
+        // グローバルミドルウェア(全てのアクセスで呼び出す)を定義する場所はLaravel11だとこの箇所になる
+        // $middleware->append(HelloMiddleware::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
