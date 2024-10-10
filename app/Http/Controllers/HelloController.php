@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 class HelloController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
-        $loopData = collect($request)->get('data');
-        return view('hello.index', ['data'=>$loopData]);
+        return view('hello.index');
     }
 }
