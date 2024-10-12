@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // グループとして登録したい場合はこのようん記述を行う
+        // グループとして登録したい場合はこのように記述を行う
         $middleware->appendToGroup('group-name', [
             HelloMiddleware::class,
         ]);
