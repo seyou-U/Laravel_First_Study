@@ -18,10 +18,11 @@ class PeopleFactory extends Factory
      */
     public function definition(): array
     {
+        // Unitテストのために記述内容変更
         return [
-            'name' => Str::random(5),
-            'mail' => Str::random(10).'@example.com',
-            'age' => 30,
+            'name' => fake()->name,
+            'mail' => fake()->unique()->safeEmail(),
+            'age' => random_int(1, 99),
         ];
     }
 }
