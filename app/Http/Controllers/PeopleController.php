@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\People;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class PeopleController extends Controller
 {
     public function index(Request $request)
     {
-        $allPeople = People::all();
-        return view('people.index', compact('allPeople'));
+        // ログインチェックを行うために処理を追加
+        $user = FacadesAuth::user();
+        return view('people.index', compact('user'));
     }
 }

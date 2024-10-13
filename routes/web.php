@@ -12,7 +12,10 @@ Route::get('/', function () {
 Route::get('hello', [HelloController::class, 'index'])
     ->middleware('group-name');
 
-Route::get('people', [PeopleController::class, 'index']);
+//
+Route::middleware('auth')->group(function () {
+    Route::get('people', [PeopleController::class, 'index'])->name('people.index');
+});
 
 Auth::routes();
 

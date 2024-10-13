@@ -7,16 +7,13 @@
 @endsection
 
 @section('content')
-    <table>
-        <tr><th>Name</th><th>Mail</th><th>Age</th></tr>
-        @foreach ($allPeople as $person)
-            <tr>
-                <td>{{$person->name}}</td>
-                <td>{{$person->mail}}</td>
-                <td>{{$person->age}}</td>
-            </tr>
-        @endforeach
-    </table>
+    @if (Auth::check())
+        <p>USER: {{$user->name . '(' . $user->email . ')'}}</p>
+    @else
+        <p>※ ログインしていません。
+            (<a href="/login">ログイン</a>|<a href="/register">登録</a>)
+        </p>
+    @endif
 @endsection
 
 @section('footer')
