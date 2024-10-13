@@ -17,6 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::get('people', [PeopleController::class, 'index'])->name('people.index');
 });
 
+Route::get('/hello/auth', [HelloController::class, 'getAuth'])->name('hello.getAuth');
+Route::post('/hello/auth', [HelloController::class, 'postAuth'])->name('hello.postAuth');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
