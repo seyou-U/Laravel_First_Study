@@ -13,3 +13,7 @@ Route::get('hello', [HelloController::class, 'index'])
     ->middleware('group-name');
 
 Route::get('people', [PeopleController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
